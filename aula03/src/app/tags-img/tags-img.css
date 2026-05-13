@@ -1,0 +1,9 @@
+/*Quando uso uma classe eu preciso do */
+.image {
+    width: 200px;
+}
+
+/* quando uso uma TAG não preciso do ponto*/
+image {
+    width: 50%;
+}
