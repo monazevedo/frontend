@@ -1,0 +1,43 @@
+/* ESTILO PARA OS LINKS DAS RECEITAS */
+a {
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #f7931e;
+    text-decoration: underline;
+}
+
+/* ESTILO PARA OS BOTÕES DA TABELA */
+td a {
+    background: #ff6b35;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+td a:hover {
+    background: #f7931e;
+    text-decoration: none;
+}
+
+/* ESTILO PARA A LISTA DE RECEITAS */
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    background: #f0f0f0;
+    padding: 8px 15px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+ul li a:hover {
+    background: #ff6b35;
+    color: white;
+    text-decoration: none;
+}

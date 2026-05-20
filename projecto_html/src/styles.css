@@ -1,0 +1,266 @@
+/* ============================================
+   CSS GLOBAL - Estilo limpo e suave
+   ============================================ */
+
+/* RESET básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #4a4a4a;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   TÍTULOS
+   ============================================ */
+h1 {
+    color: #5a5a5a;
+    font-size: 1.8rem;
+    margin: 20px 0 10px 0;
+    font-weight: 500;
+}
+
+h2 {
+    color: #6a6a6a;
+    font-size: 1.5rem;
+    margin: 15px 0 10px 0;
+    font-weight: 500;
+}
+
+h3 {
+    color: #7a7a7a;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+a {
+    color: #7a9e9e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5a7e7e;
+    text-decoration: none;
+}
+
+/* Links na tabela */
+td a {
+    background: #e8f0f0;
+    color: #5a7e7e;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+td a:hover {
+    background: #d4e4e4;
+    color: #4a6e6e;
+}
+
+/* Links na lista */
+ul li a {
+    color: #7a9e9e;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+ul li a:hover {
+    color: #5a7e7e;
+}
+
+/* ============================================
+   TABELAS
+   ============================================ */
+table {
+    width: 100%;
+    background: white;
+    margin: 15px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background: #e8f0f0;
+    color: #5a6e6e;
+    font-weight: 500;
+}
+
+tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #fafcfc;
+}
+
+/* ============================================
+   FORMULÁRIOS
+   ============================================ */
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin: 15px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #6a6a6a;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #fefefe;
+}
+
+input:focus {
+    outline: none;
+    border-color: #b8d0d0;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(120, 160, 160, 0.1);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 6px;
+    accent-color: #8aaaaa;
+}
+
+button {
+    background: #c8dcdc;
+    color: #5a6e6e;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #b8d0d0;
+    color: #4a5e5e;
+}
+
+/* ============================================
+   LISTAS
+   ============================================ */
+ul, ol {
+    margin: 10px 0 10px 25px;
+}
+
+li {
+    margin: 6px 0;
+    color: #6a6a6a;
+}
+
+/* ============================================
+   IMAGENS
+   ============================================ */
+img {
+    max-width: 100%;
+    border-radius: 16px;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ============================================
+   HEADER E FOOTER
+   ============================================ */
+header {
+    background: #eef4f4;
+    color: #6a7a7a;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+    color: #6a7e7e;
+}
+
+header p {
+    color: #8a9a9a;
+    font-size: 0.95rem;
+}
+
+footer {
+    background: #eef4f4;
+    color: #8a9a9a;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   NAVEGAÇÃO
+   ============================================ */
+nav {
+    background: white;
+    padding: 12px 20px;
+    text-align: center;
+    margin: 15px 0;
+    border-radius: 50px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+nav a {
+    margin: 0 20px;
+    font-weight: 500;
+}
+
+
+/* ============================================
+   SEPARADORES SUAVES (sem linhas)
+   ============================================ */
+hr {
+    margin: 30px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+}
