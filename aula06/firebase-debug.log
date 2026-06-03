@@ -1,0 +1,48 @@
+[debug] [2026-06-02T20:57:51.725Z] ----------------------------------------------------------------------
+[debug] [2026-06-02T20:57:51.732Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Monica\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-06-02T20:57:51.732Z] CLI Version:   15.19.0
+[debug] [2026-06-02T20:57:51.732Z] Platform:      win32
+[debug] [2026-06-02T20:57:51.733Z] Node Version:  v24.15.0
+[debug] [2026-06-02T20:57:51.733Z] Time:          Tue Jun 02 2026 21:57:51 GMT+0100 (Western European Summer Time)
+[debug] [2026-06-02T20:57:51.733Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Dev\frontend\aula06
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-06-02T21:00:16.831Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-02T21:00:16.831Z] > authorizing via signed-in user (monica.a.s.azevedo@gmail.com)
+[debug] [2026-06-02T21:00:16.833Z] Checked if tokens are valid: true, expires at: 1780437193965
+[debug] [2026-06-02T21:00:16.834Z] Checked if tokens are valid: true, expires at: 1780437193965
+[debug] [2026-06-02T21:00:16.840Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2026-06-02T21:00:17.427Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-06-02T21:00:17.427Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] 
+=== Hosting Setup
+[debug] [2026-06-02T21:01:16.918Z] Checked if tokens are valid: true, expires at: 1780437193965
+[debug] [2026-06-02T21:01:16.918Z] Checked if tokens are valid: true, expires at: 1780437193965
+[debug] [2026-06-02T21:01:16.918Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/frontendcinel-monica [none]
+[debug] [2026-06-02T21:01:17.251Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/frontendcinel-monica 200
+[debug] [2026-06-02T21:01:17.251Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/frontendcinel-monica {"projectId":"frontendcinel-monica","projectNumber":"368363914200","displayName":"frontendcinel-monica","name":"projects/frontendcinel-monica","resources":{"hostingSite":"frontendcinel-monica"},"state":"ACTIVE","etag":"1_988e0566-0765-4c49-9e56-3f255a0dd733"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
