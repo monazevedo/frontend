@@ -1,0 +1,60 @@
+.avatar-container{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.avatar{
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: rgba(red, green, blue, alpha);
+
+}
+
+.avatar:hover{
+background: rgba(rgb(17, 0, 255), green, blue, alpha);
+}
+
+.name{
+
+    color: aliceblue;
+    font-size: 0.9rem;
+}
+
+button{
+    padding: 5px 10 px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+@media (max-width:768px){ 
+    .name{
+        font-size: 0.8rem;
+    }
+
+}
+
+
+
+
+@media (max-width:480px){ 
+.avatar-container{
+
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.avatar{
+    width: 35px;
+    height: 35px;
+}
+.name{
+        text-align: center;
+        font-size: 0.5rem;
+    }
+
+
+}
