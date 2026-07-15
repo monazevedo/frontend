@@ -1,1 +1,37 @@
-<p>forms works!</p>
+
+
+<div class="login-card">
+  <h2>SignIn</h2>
+  <p>Favor SignIn o Forms</p>
+
+  <button class="clean-button" (click)="this.signInForms.reset()">Reset Formulário</button>
+
+  <!--criação do Formulário-->
+  <form [formGroup]="this.signInForms" (ngSubmit)="onSubmit()">
+    <!--1º campo do forms-->
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Digite seu Email"
+      formControlName="email"
+    />
+
+    <!--2º campo do forms-->
+    <label for="password">Password</label>
+    <input
+      type="password", name="password", id="password"
+      formControlName="password"
+      placeholder="Digite sua password, mínimo 6 e máximo de 10 caracteres"
+    />
+
+    <!-- nossos botões  -->
+    <div class="button-group">
+      <!-- o type aqui define o comportamento do botão no formulário-->
+      <button class="type" class="go-back" (click)="goBack()">Go Back</button>
+      <!--type de submit faz com que a Tag form execute o formulário, mas faz com que o método (ngSubmit)="onSubmit receba o nosso form-->
+      <button class="sign-in" type="submit">SignIn</button>
+    </div>
+  </form>
+</div>
