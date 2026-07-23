@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IUtilizador } from '../../shared/i-utilizador';
-import { Observable } from 'rxjs';
+import { IUtilizador } from './../../shared/i-utilizador';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { catchError, Observable, of, switchMap, take } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FakeBack } from '../../service/fake-back';
+import { subscribe } from 'firebase/data-connect';
 
 
 type LocalError={errorAsync: boolean, errorNome: string};
@@ -24,6 +25,7 @@ export class AssyncTables {
 
   ///Utilizar Observable
   localUserObservable$!:  Observable <IUtilizador[]>;
+  localUserSubscrition:IUtilizador[] = [];
 
 
   ///Criação das variaveis de erro
@@ -34,51 +36,79 @@ export class AssyncTables {
   errorAsyncAwait: { errorAsync: boolean; errorNome: string; } | undefined;
 
 //falaremos sobre DI ou Injeção de Dependência
-constructor(protected fakeBack: FakeBack) {
+constructor(
+    protected fakeBack: FakeBack,
+    private cdr: ChangeDetectorRef,
+) {
     this.localUserObservable$ = fakeBack.getUtilizadoresObservable();
+
+    //invocando o metodo de promise
     this.carregarPromise();
+
+    //invocando o 2º metodo de promise
+    this.carregarAsyncAwaitPromise();
+
+    this.carregarObservable();
+    //this.cdr.detectChanges();
 }
 
 
 
 carregarPromise = () => {
-    this.fakeBack
-    .getUtilizadorsPromise()
-    .then((res: IUtilizador[]) => {
-    console.log('Nosso Result: ', res);
-    return (this.localUserAsyncPromise = res);
-    })
-    .catch((e) => {
-    console.error('Nosso Error: ', e);
-    this.errorPromise = {errorAsync: true, errorNome: "Error no carregarPromise(): " + e};
-    this.localUserPromise= [];
-    });
-};
+  this.fakeBack
+  .getUtilizadorsPromise()
+  .then((result: IUtilizador[]) => {
+    this.localUserPromise = result;
+    // console.log('Nosso Result: ', this.localUserPromise);
+    this.cdr.detectChanges();
+    return this.localUserPromise;
+  })
+  .catch((e) => {
+    // console.error('Nosso Error: ', e);
+    this.errorPromise = { errorAsync: true, errorNome: 'Error no carregarPromise(): ' + e };
+    this.localUserPromise = [];
+  });
+}
 
-carregarAsyncAwaitPromise = async () => {
-    /*try {
-        const res = await this.fakeBack.getUtilizadorsPromise();
-        console.log('Nosso Result: ', res);
-        this.localUserAsyncAwait = res;
-    } catch (e) {
-        console.error('Nosso Error: ', e);
-        this.errorAsyncAwait = {errorAsync: true, errorNome: "Error no carregarAsyncAwaitPromise(): " + e};
-    }*/
-};
+
+carregarAsyncAwaitPromise() {
+    this.fakeBack
+    .getUtilizadoresAsync()
+    .then((res: IUtilizador[]) => {
+    console.log('Nosso Result em carregarAsyncAwaitPromise(): ', res);
+    this.localUserAsyncPromise = res;
+    })
+    .catch((error) => {
+    console.error('Nosso Error em carregarAsyncAwaitPromise(): ', error);
+    this.localUserAsyncPromise = [];
+    this.errorAsyncAwaitPromise = {
+    errorAsync: true,
+    errorNome: 'Error no carregarAsyncAwaitPromise(): ' + error,
+    };
+    });
+}
 
 carregarObservable = () => {
-    /*this.fakeBack
-    .getUtilizadoresObservable()
-    .subscribe({
-        next: (res: IUtilizador[]) => {
-            console.log('Nosso Result: ', res);
-            this.localUserObservable$ = res;
-        },
-        error: (e) => {
-            console.error('Nosso Error: ', e);
-            this.errorObservable = {errorAsync: true, errorNome: "Error no carregarObservable(): " + e};
-        }
-    });*/
+  //falar um pouco sobre RxJS
+  //operador take(1), este cara faz com que apos 1 subscrição o canal de dados seja fechado
+  this.fakeBack.getUtilizadoresObservable().pipe(
+    take(1),
+    switchMap((res: IUtilizador[]) => {
+    console.log('Nosso Result em carregarObservable(): ', res);
+    this.localUserSubscrition = res;
+    this.cdr.detectChanges();
+    return this.localUserSubscrition;
+    }),
+    catchError((error) => {
+    console.error('Nosso Error em carregarObservable(): ', error);
+    this.errorObservable = { errorAsync: true, errorNome: "Erro no metodo carregarObservable: " + error };
+    return of([]);
+    }),
+).subscribe({
+  next: (result) => { console.log("nosso dado: ", result) },
+  error: (e) => console.log("nosso Erro no metodo carregarObservableComSubscribeOObjeto()" + e),
+  complete: () => console.log("nosso complete, terminou o Observable"),
+});
 };
 
-}
+} // endclass
