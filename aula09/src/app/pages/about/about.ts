@@ -1,15 +1,24 @@
+import { AuthStateService } from './../../service/auth-state';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { User } from 'firebase/auth';
-/*
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
 export class About {
- constructor(private authService: AuthService) {   
-   this.user$ = this.authService.getUser();  
+
+  user$: Observable<User | null>;
+isLoading = true;
+currentYear = new Date().getFullYear();
+
+
+ constructor(private AuthService: AuthStateService) {   
+   this.user$ = this.AuthService.getUser();  
   }
  
  ngOnInit(): void {
@@ -35,4 +44,3 @@ export class About {
   }
 
 
-*/

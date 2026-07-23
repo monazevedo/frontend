@@ -1,10 +1,10 @@
 
-
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthStateService } from '../../service/auth-state';
+import { UserCredential, AuthError } from 'firebase/auth';
 
 @Component({
   selector: 'app-forms',
@@ -14,6 +14,7 @@ import { AuthStateService } from '../../service/auth-state';
   styleUrl: './forms.css',
 })
 export class Forms {
+
 
   /**Variavel para receber criar Formulario e capturar os dados */
   protected signInForms: UntypedFormGroup;
@@ -55,4 +56,12 @@ goBack = () => {
 
 } //end goback
 
-} //end class
+gmailAuthentication() {
+  this.authService.loginWithGoogle().subscribe({
+    next: (res: UserCredential) => console.log("Meu result from Firebase Authentication", res),
+    error: (e: AuthError) => {
+      console.error("nosso erro do firebase auth", e);
+      this.goBack();
+    }
+  });
+}}

@@ -13,7 +13,7 @@ import { Main } from "./components/main/main";
 })
 
 export class App implements OnInit {
-    constructor(private authStateService: AuthStateService) {}
+   constructor(private authStateService: AuthStateService) {}
     ngOnInit(): void {
     this.authStateService.initAuthListener();
   
@@ -30,4 +30,6 @@ export class App implements OnInit {
     }
     });
     }
+
+
 }
